@@ -77,7 +77,7 @@ app.post("/api/searchUrl", async (req, res) => {
     domainName = req.body.url.split("//")[1].split("/")[0];
   }
   else {
-    domainName = req.body.url;
+    domainName = req.body.url.split("/")[0];
   }
   client
     .query("SELECT * from alexa WHERE url = $1", [domainName])
